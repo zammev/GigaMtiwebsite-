@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GigaMTI - Global IT Group</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Particles Container -->
+    <div class="particles-container" id="particles"></div>
+
+    <!-- Grid Background -->
+    <div class="grid-background" id="gridBackground"></div>
+
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo-container">
+                    <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/mtiblocks-6gdGLCXuIp4kKjXVGwnineyCcri8ln.png" alt="GigaMTI Logo" class="logo-img">
+                    <div class="logo-text">GigaMTI</div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="fade-in">
+                    <span>Создаем</span>
+                    <span class="gradient-text">Инновационные Решения</span>
+                </h1>
+                <p class="fade-in delay-1">Global IT Group for Modern Technologies and Innovation — это агентство для амбициозных проектов, которые стремятся не просто соответствовать рынку, а задавать новые стандарты. Мы объединяем экспертизу в IT, дизайне и маркетинге, чтобы создавать решения, опережающие время.</p>
+            </div>
+        </div>
+        <div class="hero-grid" id="heroGrid"></div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services">
+        <div class="container">
+            <h2 class="section-title fade-in"><span>Наши услуги</span></h2>
+            <div class="services-grid">
+                <div class="service-card fade-in delay-1">
+                    <div class="service-icon purple">🤖</div>
+                    <h3>Разработка ботов</h3>
+                    <p>Создаем интеллектуальных ботов для автоматизации бизнес-процессов и улучшения взаимодействия с клиентами.</p>
+                </div>
+                <div class="service-card fade-in delay-2">
+                    <div class="service-icon green">📈</div>
+                    <h3>Маркетинговые услуги</h3>
+                    <p>Разрабатываем и реализуем эффективные маркетинговые стратегии для продвижения вашего бизнеса.</p>
+                </div>
+                <div class="service-card fade-in delay-3">
+                    <div class="service-icon blue">💻</div>
+                    <h3>Разработка веб-сайтов</h3>
+                    <p>Создаем современные, функциональные и эстетичные веб-сайты, которые привлекают и удерживают внимание.</p>
+                </div>
+                <div class="service-card fade-in delay-4">
+                    <div class="service-icon dark-blue">🚀</div>
+                    <h3>IT-автоматизация и инновации</h3>
+                    <p>Предоставляем экспертные рекомендации по автоматизации процессов и внедрению инновационных технологий.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact">
+        <div class="container">
+            <h2 class="section-title fade-in"><span>Свяжитесь с нами</span></h2>
+            <div class="contact-content">
+                <!-- Bot button with updated gradient -->
+                <a href="https://t.me/GigaMTI_Bot" class="gradient-btn fade-in delay-1" target="_blank">
+                    <span class="btn-icon">🤖</span> Наш бот для заказа
+                </a>
+                
+                <!-- Telegram channel button with updated gradient -->
+                <a href="https://t.me/Giga_MTI" class="gradient-btn fade-in delay-2" target="_blank">
+                    <span class="btn-icon">✈️</span> Наш Telegram канал
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>© 2025 GigaMTI. Все права защищены.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Create grid background
+        document.addEventListener('DOMContentLoaded', function() {
+            const gridBackground = document.getElementById('gridBackground');
+            const rows = Math.ceil(window.innerHeight / 100) + 1;
+            const cols = Math.ceil(window.innerWidth / 100) + 1;
+            
+            for (let i = 0; i < rows * cols; i++) {
+                const cell = document.createElement('div');
+                cell.className = 'grid-cell';
+                gridBackground.appendChild(cell);
+            }
+            
+            // Create hero grid
+            const heroGrid = document.getElementById('heroGrid');
+            for (let i = 0; i < 25; i++) {
+                const cell = document.createElement('div');
+                cell.className = 'hero-grid-cell';
+                
+                // Add special cells
+                if (i === 7) {
+                    cell.classList.add('arrow');
+                    cell.classList.add('active');
+                } else if (i === 11) {
+                    cell.classList.add('m');
+                    cell.classList.add('active');
+                } else if (i === 12) {
+                    cell.classList.add('t');
+                    cell.classList.add('active');
+                } else if (i === 13) {
+                    cell.classList.add('i');
+                    cell.classList.add('active');
+                } else if (i === 17) {
+                    cell.classList.add('dollar');
+                    cell.classList.add('active');
+                } else if (Math.random() > 0.7) {
+                    cell.classList.add('active');
+                }
+                
+                heroGrid.appendChild(cell);
+            }
+            
+            // Create floating particles
+            const particlesContainer = document.getElementById('particles');
+            const colors = ['#c659ff', '#7ed957', '#59b6ff']; // Logo colors
+            
+            for (let i = 0; i < 30; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                
+                // Random properties
+                const size = Math.random() * 10 + 5;
+                const color = colors[Math.floor(Math.random() * colors.length)];
+                
+                particle.style.width = `${size}px`;
+                particle.style.height = `${size}px`;
+                particle.style.backgroundColor = color;
+                particle.style.left = `${Math.random() * 100}vw`;
+                particle.style.top = `${Math.random() * 100}vh`;
+                
+                // Animation
+                const duration = Math.random() * 20 + 10;
+                const delay = Math.random() * 5;
+                
+                particle.style.animation = `float ${duration}s linear ${delay}s infinite`;
+                particle.style.opacity = Math.random() * 0.3 + 0.1;
+                
+                particlesContainer.appendChild(particle);
+            }
+            
+            // Add floating animation dynamically
+            const style = document.createElement('style');
+            style.textContent = `
+                @keyframes float {
+                    0% {
+                        transform: translateY(0) translateX(0);
+                    }
+                    25% {
+                        transform: translateY(-20px) translateX(10px);
+                    }
+                    50% {
+                        transform: translateY(-40px) translateX(0);
+                    }
+                    75% {
+                        transform: translateY(-20px) translateX(-10px);
+                    }
+                    100% {
+                        transform: translateY(0) translateX(0);
+                    }
+                }
+            `;
+            document.head.appendChild(style);
+            
+            // Animation for fade-in elements
+            const fadeElements = document.querySelectorAll('.fade-in');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = 1;
+                    }
+                });
+            }, { threshold: 0.1 });
+            
+            fadeElements.forEach(element => {
+                observer.observe(element);
+            });
+        });
+    </script>
+</body>
+</html>
